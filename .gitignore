@@ -130,3 +130,7 @@ dmypy.json
 
 # Config
 config.py
+
+# Temporarily ignored
+.travis.yml
+setup.py
