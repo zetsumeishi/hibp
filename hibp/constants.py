@@ -1,4 +1,4 @@
-from config import KEY
+from .config import KEY
 
 HEADERS = {"User-Agent": "hibpy", "hibp-api-key": KEY}
 VERSION = "v3"

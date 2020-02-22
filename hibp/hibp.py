@@ -2,7 +2,7 @@ from time import sleep
 
 import requests
 
-from constants import (
+from .constants import (
     URL,
     HEADERS,
     BREACHED_ACCOUNT,
