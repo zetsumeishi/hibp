@@ -10,6 +10,7 @@ from constants import (
     BREACH,
     DATA_CLASSES,
     PASTE_ACCOUNT,
+    HTTP_CODES,
 )
 
 
@@ -28,6 +29,12 @@ class HIBP:
         sleep(1)
         if response.status_code == 200:
             return response.json()
+        elif response.status_code == 404:
+            print("No results found")
+        else:
+            print(
+                f"Something happened: {HTTP_CODES[str(response.status_code)]}"
+            )
 
     def breached_account(
         self, email, truncate=True, domain=None, unverified=False
