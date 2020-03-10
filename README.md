@@ -1,1 +1,1 @@
-# hibp [![Build Status](https://travis-ci.org/zetsumeishi/hibp.svg?branch=master)](https://travis-ci.org/zetsumeishi/hibp)
+# hibp [![Build Status](https://travis-ci.org/zetsumeishi/hibp.svg?branch=master)](https://travis-ci.org/zetsumeishi/hibp) [![Coverage Status](https://coveralls.io/repos/github/zetsumeishi/hibp/badge.svg?branch=master)](https://coveralls.io/github/zetsumeishi/hibp?branch=master)
