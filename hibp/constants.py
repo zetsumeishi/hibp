@@ -1,8 +1,19 @@
-from config import KEY
+import os
+import sys
 
-HEADERS = {"User-Agent": "hibpy", "hibp-api-key": KEY}
+try:
+    HIBP_API_KEY = os.environ.get("HIBP_API_KEY")
+except Exception:
+    print(
+        "To use this package, please export your API key:\n"
+        "export HIBP_API_KEY='YOUR_API_KEY'"
+    )
+    sys.exit(0)
+
+HEADERS = {"User-Agent": "hibpy", "hibp-api-key": HIBP_API_KEY}
 VERSION = "v3"
-URL = f"https://haveibeenpwned.com/api/{VERSION}"
+BASE_URL = "https://haveibeenpwned.com/"
+API_URL = f"https://haveibeenpwned.com/api/{VERSION}"
 
 # Services
 # All breaches for an account

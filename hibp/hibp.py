@@ -3,7 +3,7 @@ from time import sleep
 import requests
 
 from .constants import (
-    URL,
+    API_URL,
     HEADERS,
     BREACHED_ACCOUNT,
     BREACHES,
@@ -19,7 +19,7 @@ class HIBP:
         super(HIBP, self).__init__()
 
     def get(self, service, params=None, search_term=None):
-        query = f"{URL}/{service}"
+        query = f"{API_URL}/{service}"
         if search_term:
             query += f"/{search_term}"
         if params:
@@ -28,7 +28,7 @@ class HIBP:
         response = requests.get(query, headers=HEADERS)
         sleep(1)
         if response.status_code == 200:
-            return response.__dict__
+            return response.json()
         elif response.status_code == 404:
             print("No results found")
         else:
