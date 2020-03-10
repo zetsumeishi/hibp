@@ -1,17 +1,18 @@
 import setuptools
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+long_description = """
+Python interface to communicate with HaveIBeenPwned.com.
+"""
 
 setuptools.setup(
-    name="example-pkg-YOUR-USERNAME-HERE",
-    version="0.0.1",
+    name="hibp",
+    version="0.1.0",
     author="zetsumeishi",
     author_email="olivier.loustaunau@gmail.com",
     description="Python interface to communicate with HaveIBeenPwned.com",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/zetsumeishi/hibp",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
