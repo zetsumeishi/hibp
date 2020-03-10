@@ -9,6 +9,10 @@ jobs:
 
 install:
   - pip install -r requirements.txt
+  - pip install -r dev-requirements.txt
 
 script:
-  - python -m unittest tests.tests
+  - coverage run -m unittest discover
+
+after_success:
+  - coveralls

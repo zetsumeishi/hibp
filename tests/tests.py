@@ -1,4 +1,4 @@
-from unittest import TestCase
+import unittest
 
 from hibp.hibp import (
     breached_account,
@@ -27,7 +27,7 @@ BREACH_KEYS = [
 ]
 
 
-class HIBPTestCase(TestCase):
+class HIBPTestCase(unittest.TestCase):
     def setUp(self):
         self.content_type = "application/json; charset=utf-8"
         self.status_code = 200
@@ -76,3 +76,7 @@ class HIBPTestCase(TestCase):
         self.assertIsInstance(response[0]["EmailCount"], int)
         self.assertTrue(type(response[0]["Title"]) in [str, type(None)])
         self.assertTrue(type(response[0]["Date"]) in [str, type(None)])
+
+
+if __name__ == "__main__":
+    unittest.main()
