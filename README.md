@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This package was developed on Ubuntu 18 using Python 3.8. It is tested against Python 3.6, 3.7, 3.8.
+This package was developed on Ubuntu 20 using Python 3.9. It is tested against Python 3.6, 3.7, 3.8, and 3.9.
 
-An alternative using selenium will be done. But at the moment, you need an API key from [HaveIBeenPwned](https://haveibeenpwned.com/API/Key).
+You need an API key from [HaveIBeenPwned](https://haveibeenpwned.com/API/Key).
 
 ## Installation
 
