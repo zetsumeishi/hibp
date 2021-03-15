@@ -1,4 +1,5 @@
 import unittest
+from time import sleep
 
 from hibp.hibp import breach
 from hibp.hibp import breached_account
@@ -31,8 +32,11 @@ class HIBPTestCase(unittest.TestCase):
         self.status_code = 200
 
     def test_breached_account(self):
+        sleep(1)
         response = breached_account(
-            'oliver@gmail.com', truncate=False, unverified=True,
+            'oliver@gmail.com',
+            truncate=False,
+            unverified=True,
         )
         self.assertEqual(response.status_code, self.status_code)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
@@ -41,6 +45,7 @@ class HIBPTestCase(unittest.TestCase):
             self.assertIsInstance(response[0][elem[0]], elem[1])
 
     def test_breaches(self):
+        sleep(1)
         response = breaches()
         self.assertEqual(response.status_code, self.status_code)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
@@ -49,6 +54,7 @@ class HIBPTestCase(unittest.TestCase):
             self.assertIsInstance(response[0][elem[0]], elem[1])
 
     def test_breach(self):
+        sleep(1)
         response = breach('Canva')
         self.assertEqual(response.status_code, self.status_code)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
@@ -57,6 +63,7 @@ class HIBPTestCase(unittest.TestCase):
             self.assertIsInstance(response[elem[0]], elem[1])
 
     def test_data_classes(self):
+        sleep(1)
         response = data_classes()
         self.assertEqual(response.status_code, self.status_code)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
@@ -65,6 +72,7 @@ class HIBPTestCase(unittest.TestCase):
             self.assertIsInstance(cls, str)
 
     def test_paste_account(self):
+        sleep(1)
         response = paste_account('oliver@gmail.com')
         self.assertEqual(response.status_code, self.status_code)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
