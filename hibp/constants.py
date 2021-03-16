@@ -29,7 +29,7 @@ PASTE_ACCOUNT = 'pasteaccount'
 
 HTTP_CODES = {
     '400': '400 - Bad Request',
-    '401': '401 - Unauthorised',
+    '401': '401 - Unauthorized',
     '403': '403 - Forbidden',
     '429': '429 - Too Many Requests',
     '503': '503 - Service Unavailable',
