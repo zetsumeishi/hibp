@@ -1,15 +1,12 @@
 import requests
 
-from .constants import (
-    API_URL,
-    HEADERS,
-    BREACHED_ACCOUNT,
-    BREACHES,
-    BREACH,
-    DATA_CLASSES,
-    PASTE_ACCOUNT,
-    HTTP_CODES,
-)
+from .constants import API_URL
+from .constants import BREACH
+from .constants import BREACHED_ACCOUNT
+from .constants import BREACHES
+from .constants import DATA_CLASSES
+from .constants import HEADERS
+from .constants import PASTE_ACCOUNT
 
 
 def get(service, params=None, search_term=None):
@@ -23,10 +20,8 @@ def get(service, params=None, search_term=None):
     if response.status_code == 200:
         response = response.json()
         return response
-    elif response.status_code == 404:
-        print("No results found")
     else:
-        print(f"Something happened: {HTTP_CODES[str(response.status_code)]}")
+        return response.status_code
 
 
 def breached_account(email, truncate=True, domain=None, unverified=False):
