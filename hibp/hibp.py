@@ -21,6 +21,7 @@ def get(service, params=None, search_term=None):
 
     response = requests.get(query, headers=HEADERS)
     if response.status_code == 200:
+        response = response.json()
         return response
     elif response.status_code == 404:
         print("No results found")
