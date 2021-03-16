@@ -1,14 +1,14 @@
+import logging
 import os
-import sys
 
 try:
     HIBP_API_KEY = os.environ.get('HIBP_API_KEY')
 except Exception:
-    print(
-        'To use this package, please export your API key:\n'
-        'export HIBP_API_KEY=\'YOUR_API_KEY\''
+    logging.warning(
+        'To use this package, please add your API key to your environment:\n'
+        'export HIBP_API_KEY="YOUR_API_KEY"',
     )
-    sys.exit(0)
+    HIBP_API_KEY = 'MISSING_API_KEY'
 
 HEADERS = {'User-Agent': 'hibpy', 'hibp-api-key': HIBP_API_KEY}
 VERSION = 'v3'
