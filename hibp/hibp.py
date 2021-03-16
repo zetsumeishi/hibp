@@ -17,11 +17,7 @@ def get(service, params=None, search_term=None):
         query += f'?{params}'
 
     response = requests.get(query, headers=HEADERS)
-    if response.status_code == 200:
-        response = response.json()
-        return response
-    else:
-        return response.status_code
+    return response
 
 
 def breached_account(email, truncate=True, domain=None, unverified=False):
