@@ -13,11 +13,11 @@ from .constants import (
 
 
 def get(service, params=None, search_term=None):
-    query = f"{API_URL}/{service}"
+    query = f'{API_URL}/{service}'
     if search_term:
-        query += f"/{search_term}"
+        query += f'/{search_term}'
     if params:
-        query += f"?{params}"
+        query += f'?{params}'
 
     response = requests.get(query, headers=HEADERS)
     if response.status_code == 200:
@@ -30,16 +30,16 @@ def get(service, params=None, search_term=None):
 
 
 def breached_account(email, truncate=True, domain=None, unverified=False):
-    params = f"truncateResponse={truncate}&includeUnverified={unverified}"
+    params = f'truncateResponse={truncate}&includeUnverified={unverified}'
     if domain:
-        params += f"&domain={domain}"
+        params += f'&domain={domain}'
     return get(BREACHED_ACCOUNT, params=params, search_term=email)
 
 
 def breaches(domain=None):
-    params = ""
+    params = ''
     if domain:
-        params = f"domain={domain}"
+        params = f'domain={domain}'
     return get(BREACHES, params=params)
 
 
