@@ -28,7 +28,7 @@ def breached_account(email, truncate=True, domain=None, unverified=False):
 
 
 def breaches(domain=None):
-    params = ''
+    params = str()
     if domain:
         params = f'domain={domain}'
     return get(BREACHES, params=params)
