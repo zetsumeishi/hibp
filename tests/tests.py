@@ -29,7 +29,6 @@ BREACH_KEYS = [
 class HIBPTestCase(unittest.TestCase):
     def setUp(self):
         self.content_type = 'application/json; charset=utf-8'
-        self.status_code = 200
 
     def test_breached_account(self):
         sleep(1.5)
@@ -38,16 +37,45 @@ class HIBPTestCase(unittest.TestCase):
             truncate=False,
             unverified=True,
         )
-        self.assertEqual(response.status_code, self.status_code)
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
         response = response.json()
         for elem in BREACH_KEYS:
             self.assertIsInstance(response[0][elem[0]], elem[1])
 
+        sleep(1.5)
+        response = breached_account(
+            'oliver@gmail.com',
+            truncate=False,
+            unverified=True,
+            domain='adobe.com',
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers['Content-Type'], self.content_type)
+        response = response.json()
+        for elem in BREACH_KEYS:
+            self.assertIsInstance(response[0][elem[0]], elem[1])
+
+        sleep(1.5)
+        response = breached_account(
+            'john.doe@nothacked.com',
+            truncate=False,
+            unverified=True,
+        )
+        self.assertEqual(response.status_code, 404)
+
     def test_breaches(self):
         sleep(1.5)
         response = breaches()
-        self.assertEqual(response.status_code, self.status_code)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers['Content-Type'], self.content_type)
+        response = response.json()
+        for elem in BREACH_KEYS:
+            self.assertIsInstance(response[0][elem[0]], elem[1])
+
+        sleep(1.5)
+        response = breaches(domain='adobe.com')
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
         response = response.json()
         for elem in BREACH_KEYS:
@@ -56,7 +84,7 @@ class HIBPTestCase(unittest.TestCase):
     def test_breach(self):
         sleep(1.5)
         response = breach('Canva')
-        self.assertEqual(response.status_code, self.status_code)
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
         response = response.json()
         for elem in BREACH_KEYS:
@@ -65,7 +93,7 @@ class HIBPTestCase(unittest.TestCase):
     def test_data_classes(self):
         sleep(1.5)
         response = data_classes()
-        self.assertEqual(response.status_code, self.status_code)
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
         response = response.json()
         for cls in response:
@@ -74,7 +102,7 @@ class HIBPTestCase(unittest.TestCase):
     def test_paste_account(self):
         sleep(1.5)
         response = paste_account('oliver@gmail.com')
-        self.assertEqual(response.status_code, self.status_code)
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['Content-Type'], self.content_type)
         response = response.json()
         self.assertIsInstance(response[0]['Id'], str)
