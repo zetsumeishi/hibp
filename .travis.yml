@@ -8,6 +8,12 @@ jobs:
     - python: '3.7'
     - python: '3.6'
 
+addons:
+  sonarcloud:
+    organization: "zetsumeishi"
+    token:
+      secure: "l2gQ4vJD0fz7Cspt3p121Hc6E2vLLu4x83vZ7A65PDIw899Sy16wXioLGU7MyYhlijzblDGXTqwmH7DzaL0nBr3BG5IQxQfxIymu55mvgEKilI3i80VeCUf4w3ZhY7VZtSs0hTwaftZCE0XpyoMhYDhmtQMoDu3jeb18kEdL/+/DEElTyTpcO0nW3aHwV8WSfF8bdtCTHFmJD6WTjmG8R3B5559QWt7niQjoeGaWRxw/E7obnYPKtRYFMYfon/n1jYRKa00KZJjJMbAecPRjW0WnOfEenGdyqZLEzykGMw6cVeXsrBEzVTv1DVz4frFDIxXOnnOdGam36hSPt+3Ke2DIwV7o62JrL/ObIUxSH/GOA6nGseSxv5CypDAKecdxVUyPMmoHic7x7WrlIsHNZ89URFl4OcL57bh0VmDEvaJH0eGXHUQIczZhYBTFkwZbnEN52EJuv/NsCZ1zKRlL13tnJBsrx3+yfV/fo60+9hErrkIjnXxYtSDQs7jR/YrQfLLhNENZvYpLCCLIbIUNW7/2lFg2bH+z+KgHuVB9kPEhAZMQ0VGObBY66wLwGuvlMswIPK9xTS1v5jmaIwO1o0h/JtwFj8zs7crXOsKSePQi0cbMm861jfVEwXb0zVH/sWY+uPVpx5Ha2D2GuOxMFiVNcoCzmlA66hAdjMRPEbA="
+
 install:
   - pip install -r requirements.txt
   - pip install -r dev-requirements.txt
@@ -17,3 +23,4 @@ script:
 
 after_success:
   - coveralls
+  - sonar-scanner
