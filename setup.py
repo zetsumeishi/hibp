@@ -6,7 +6,7 @@ Python interface to communicate with HaveIBeenPwned.com.
 
 setuptools.setup(
     name='hibp-zetsumeishi',
-    version='0.1.2',
+    version='0.1.3',
     author='zetsumeishi',
     author_email='olivier.loustaunau@gmail.com',
     description='Python interface to communicate with HaveIBeenPwned.com',
